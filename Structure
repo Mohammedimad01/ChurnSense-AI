@@ -1,0 +1,29 @@
+ChurnSense-AI/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│   ├── 01_data_cleaning.ipynb
+│   ├── 02_eda.ipynb
+│   ├── 03_feature_engineering.ipynb
+│   ├── 04_model_training.ipynb
+│   └── 05_model_evaluation.ipynb
+│
+├── sql/
+│   └── churn_analysis.sql
+│
+├── dashboard/
+│
+├── models/
+│
+├── app/
+│
+├── research/
+│
+├── screenshots/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
