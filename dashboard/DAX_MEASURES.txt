@@ -1,0 +1,38 @@
+// ChurnSense-AI — Power BI DAX measures (paste into Model view)
+
+% Churn Rate =
+DIVIDE( SUM( customers[churn_flag] ), COUNT( customers[customer_id] ), 0 ) * 100
+
+Churners =
+SUM( customers[churn_flag] )
+
+Active Customers =
+COUNT( customers[customer_id] )
+
+Avg Monthly Revenue =
+AVERAGE( customers[monthly_charges] )
+
+Monthly Revenue Lost =
+SUMX( FILTER( customers, customers[churn_flag] = 1 ), customers[monthly_charges] )
+
+Annual Revenue at Risk =
+[Monthly Revenue Lost] * 12
+
+MTM Customer % =
+DIVIDE(
+    CALCULATE( COUNT( customers[customer_id] ), customers[contract] = "Month-to-month" ),
+    [Active Customers],
+    0
+) * 100
+
+High Value Customers =
+CALCULATE(
+    COUNT( customers[customer_id] ),
+    customers[monthly_charges] >= PERCENTILE.INC( customers[monthly_charges], 0.75 )
+)
+
+Flagged for Outreach =
+COUNTROWS( FILTER( customer_scores, customer_scores[flagged_for_outreach] = 1 ) )
+
+Best Model AUC =
+MAXX( ALL( model_comparison ), model_comparison[roc_auc] )
