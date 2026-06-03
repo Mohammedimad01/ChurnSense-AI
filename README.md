@@ -116,57 +116,6 @@ On the IBM Telco Customer Churn dataset, this pipeline typically achieves:
 
 ---
 
-## Quick start
-
-### 1. Clone and install
-
-```bash
-git clone https://github.com/YOUR_USERNAME/ChurnSense-AI.git
-cd ChurnSense-AI
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2. Download data
-
-Get [Telco Customer Churn (Kaggle)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) and save as:
-
-```
-data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
-```
-
-### 3. Run the pipeline
-
-| Step | Command / notebook | Output |
-|------|------------------|--------|
-| Clean | `notebooks/01_data_cleaning.ipynb` | `telco_churn_clean.csv` |
-| EDA | `notebooks/02_eda.ipynb` | segment CSVs |
-| Features | `notebooks/03_feature_engineering.ipynb` | `X_train.csv`, `preprocessor.joblib` |
-| Train | `notebooks/04_model_training.ipynb` | `best_model.joblib` |
-| Evaluate | `notebooks/05_model_evaluation.ipynb` | SHAP, `churn_threshold.json` |
-| SQL DB | `python sql/build_analytics_db.py` | `churnsense_analytics.db` |
-| App | `streamlit run app/app.py` | http://localhost:port |
-
----
-
-## Screenshots
-
-Add captures to `screenshots/` after running the project:
-
-| File | Description |
-|------|-------------|
-| `eda_churn_contract.png` | EDA — churn by contract |
-| `model_comparison.png` | Model leaderboard |
-| `shap_summary.png` | SHAP beeswarm |
-| `dashboard_overview.png` | Power BI executive page |
-| `streamlit_app.png` | Streamlit scoring UI |
-
----
-
 ## Project structure
 
 ```
@@ -177,9 +126,7 @@ ChurnSense-AI/
 ├── models/              # Trained models & preprocessor
 ├── notebooks/           # 01–05 pipeline notebooks
 ├── sql/                 # Schema, queries, DB builder
-├── src/                 # Reusable Python modules
 ├── research/            # Paper notes
-├── docs/                # Resume & interview prep
 └── screenshots/
 ```
 
